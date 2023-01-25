@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
-import {GlobalStyle} from './styles'
+import {GlobalStyle, ImageContainer, Wrapper} from './styles'
 import Header from './Header'
+import Footer from './Footer'
+import ImgBox from './ImgBox'
 
 //Top level tags are necessary if we want to return multiple adjacent tags at once, else we have to use fragments.
 //Upper case for React components
@@ -19,7 +21,7 @@ import Header from './Header'
 
 //Pros of stylized components. They are reusable, easay to make changes in
 //header components will have their own index.jsx files
-
+//Whenever one is using webpack with react, loaders will be required to pack the utilized resources with webpack
 
 
 const App = () => {
@@ -28,6 +30,12 @@ const App = () => {
         <>
             <GlobalStyle/>
             <Header/>
+            <Footer/>
+            <Wrapper>
+                <ImageContainer>
+                    <ImgBox/> 
+                </ImageContainer>
+            </Wrapper>
         </>
     );
 };
