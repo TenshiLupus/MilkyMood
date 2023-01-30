@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Yup from 'yup'
-import {Formik, Form, Field, useField} from 'formik'
+import {Formik, Form, useField} from 'formik'
+import {Input, Label, Error, Submit} from './styles'
 
 //Render props: are used to render elements to te screen
 //destructure components
@@ -9,10 +10,10 @@ const InputComponent = ({label, ...props}) => {
     //field
     const [field, meta] = useField(props)
     return (
-        <label> 
-            {label}: {meta.touched && meta.error && <div>{meta.error}</div>}
-            <input {...field} {...props}/>
-        </label>
+        <Label> 
+            {label}: {meta.touched && meta.error && <Error>{meta.error}</Error>}
+            <Input {...field} {...props}/>
+        </Label>
     )
 }
 
@@ -37,7 +38,8 @@ const FormComponent = ({handleSuccess}) => {
                     <Form>
                         <InputComponent name="name" type="text" label="Name" autoComplete="off"/>
                         <InputComponent name="email" type="email" label="Email" autoComplete="off"/>
-                    
+                        
+                        <Submit type="submit">Submit</Submit>
                     </Form>
                 )}
           
